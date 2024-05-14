@@ -51,7 +51,7 @@ import {Component} from "path";
 
 (Normal JS utility functions)
 
-- useState() - Superpowerful State Variables in react
+- useState() - to create superpowerful State Variables in react
 - useEffect()
 
 # 2 types Routing in web apps
