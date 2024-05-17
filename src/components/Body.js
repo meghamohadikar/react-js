@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestraunt] = useState([]); //array destructuring
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -25,30 +26,31 @@ const Body = () => {
         const resData =
           cardObj.card?.card?.gridElements?.infoWithStyle?.restaurants;
         setListOfRestraunt(resData);
-        //setFilteredRestaurant(resData);
       }
     }
   };
 
   console.log('body component will render before useEffect');
 
-  if (listOfRestaurants.length === 0) {
-    return <Shimmer />;
-  }
+  //conditional rendering-> component rendering based on a condition
+  /* if (listOfRestaurants.length === 0) {
+    return <Shimmer />; //Fake UI untill data loads
+  } */
 
-  return (
+  const filterRestaurant = () => {
+    const filteredList = listOfRestaurants.filter(
+      (res) => res.info.avgRating > 4
+    );
+    setListOfRestraunt(filteredList);
+  };
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="search">SearchBar</div>
       <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
-            );
-            setListOfRestraunt(filteredList);
-          }}
-        >
+        <button className="filter-btn" onClick={filterRestaurant}>
           Top Rated Restaurant
         </button>
       </div>

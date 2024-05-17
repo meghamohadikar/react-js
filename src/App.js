@@ -12,7 +12,7 @@ const heading = React.createElement(
   { id: 'attributeOfTheTag', xyz: 'abc' },
   'Hello World with ReactJS!!!!'
 );
-console.log(heading); //object
+console.log(heading); // JS object
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(heading); //converts heading object to h1 html tag
 
