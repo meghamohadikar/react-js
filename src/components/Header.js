@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { LOGO_URL } from '../utils/constants';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   /* let btnName = 'Login';
@@ -29,9 +30,19 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          {/* <li>
+            <a href="/about">About Us</a>
+          </li> 
+          anchor tag refreshes whole page. so, not recommended */}
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <button className="login" onClick={changeBtn}>
             {btnName}
