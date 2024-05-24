@@ -1,6 +1,7 @@
 import RestaurantCard from './RestaurantCard';
 import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestraunt] = useState([]); //array destructuring
@@ -45,6 +46,7 @@ const Body = () => {
       (res) => res.info.avgRating > 4
     );
     setFilterList(filteredList);
+    console.log(filteredList);
   };
 
   const searchRestaurant = () => {
@@ -75,8 +77,13 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {filterList.map((resData) => (
-          <RestaurantCard key={resData.info.id} resData={resData} />
+        {filterList.map((restaurant) => (
+          <Link
+            key={restaurant?.info.id}
+            to={'/restaurants/' + restaurant?.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
