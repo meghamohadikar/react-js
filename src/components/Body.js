@@ -3,6 +3,7 @@ import Shimmer from './Shimmer';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+//fetch and display restaurant list, search and filter restaurants
 const Body = () => {
   const [listOfRestaurants, setListOfRestraunt] = useState([]); //array destructuring
   const [searchText, setSearchText] = useState('');

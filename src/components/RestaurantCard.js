@@ -1,5 +1,6 @@
 import { CDN_URL } from '../utils/constants';
 
+//to display restaurent card in body
 const RestaurantCard = (props) => {
   const { resData } = props;
   const { name, cuisines, avgRating, costForTwo, sla, cloudinaryImageId } =
